@@ -229,6 +229,18 @@ body {
   background:#fff;
 
 }
+#wrapper #myBtnCenter {
+  margin-right: 30%;
+  margin-top: 5%;
+  text-align: center;
+  border: 1px solid #fff;
+  border-radius: 20px;
+  font-family: 'Comfortaa', 'Helvetica';
+  font-size: 10px;
+  font-color: #28598c;
+  background:#fff;
+
+}
 /** create account */
 
 /* The Modal (background) */
