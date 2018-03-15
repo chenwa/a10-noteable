@@ -1,4 +1,26 @@
 
+/* Generates a random code every time the user presses "Generate Code"
+For some reason, this doesn't work.*/
+
+$('#codeGenerator').click(makeID);
+
+function makeID(event) {
+  var text = "";
+  var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+  for (var i = 0; i < 5; i++)
+    text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+  $('#crowdsourceCode').text(text);
+
+}
+
+
+
+/* Never used - didn't make a difference to modal not showing up, since I used
+Warren's modal format (the ones like from note page) instead of the one there.
+
+
 window.onload = function(){ 
 // Get the modal
 var modal = document.getElementById('myModal');
@@ -26,4 +48,4 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
-};
+}; */

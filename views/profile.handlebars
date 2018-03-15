@@ -57,55 +57,78 @@
         <table id = "wrapper"> 
         <tr>
           <td>
-            <br>
-                          <!-- where the error occurred --> 
-            <button id="myBtnCenter" class="btn btn-secondary">Change Password</button>
+            <br></br>
+            <button id="myBtnCenter" class="btn btn-secondary modal-toggle" data-toggle="modal" data-target="#changePW">Change Password</button>
               <!-- The Modal -->
               <div id="myModal" class="modal">
 
-                <!-- Within the Modal (pop-up window) -->
-                <div class="modal-content">
-                  <span class="close">&times;</span>
-                  <br>
-                  <br>
-                  <!-- Current -->
-                  <table id ="wrapper">
-                    <tr>
-                      <td>
-                        <label for = "exampleInputPW">Current Password</label>
-                    <input type = "password" class = "form-control" name = "password" placeholder= "Enter current password">
-                       </td>
-                    </tr>
-                  </table>
-                  <!-- New -->
-                  <table id = "wrapper">
-                    <tr>
-                      <td>
-                        <label for = "exampleInputPW">Password</label>
-                        <input type = "password" class = "form-control" name = "password" placeholder= "Enter new password">
-                      </td>
-                    </tr>
-                  </table>
-                  <!-- Retype New -->
-                  <table id = "wrapper">
-                    <tr>
-                      <td>
-                        <label for = "exampleInputPW">Repeat New Password</label>
-                        <input type = "password" class = "form-control" name = "password" placeholder= "Retype new password">
-                      </td>
-                    </tr>
-                  </table>
+                <!-- Within the Change PW Modal (pop-up window) -->
+                <div class="modal fade" id="changePW" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <span class="close">&times;</span>
+                      <br>
+                      <br>
+                      <!-- Current -->
+                      <table id ="wrapper">
+                        <tr>
+                          <td>
+                            <label for = "exampleInputPW">Current Password</label>
+                        <input type = "password" class = "form-control" name = "password" placeholder= "Enter current password">
+                           </td>
+                        </tr>
+                      </table>
+                      <!-- New -->
+                      <table id = "wrapper">
+                        <tr>
+                          <td>
+                            <label for = "exampleInputPW">Password</label>
+                            <input type = "password" class = "form-control" name = "password" placeholder= "Enter new password">
+                          </td>
+                        </tr>
+                      </table>
+                      <!-- Retype New -->
+                      <table id = "wrapper">
+                        <tr>
+                          <td>
+                            <label for = "exampleInputPW">Repeat New Password</label>
+                            <input type = "password" class = "form-control" name = "password" placeholder= "Retype new password">
+                          </td>
+                        </tr>
+                      </table>
 
-                  <!-- Enter button -->
-                  <table id = "wrapper">
-                    <tr>
-                      <td><a href = "/profile"><button class = "confirm_btn"> Confirm </button></a></td>
-                    </tr>
-                  </table>
-
-
+                      <!-- Enter button -->
+                      <table id = "wrapper">
+                        <tr>
+                          <td><a href = "/profile"><button class = "confirm_btn"> Confirm </button></a></td>
+                        </tr>
+                      </table>
+                    </div>
+                  </div>
                 </div>
                 <!-- end of Modal content (popup window) --> 
+              </div>
+
+            <br></br>
+            <button id="codeGenerator" class="btn btn-secondary modal-toggle" data-toggle="modal" data-target="#generateCode">Generate Crowdsource Code</button>
+              <!-- Modal for bookmark -->
+              <div class="modal fade" id="generateCode" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="modalLabel">Crowdsource Code
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button></h5>
+                    </div>
+                    <div class="modal-body">
+                      <h5 id = "crowdsourceCode" style="text-align: center; color: black; font-weight: bold">CXW893</h5>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
 
           </td>

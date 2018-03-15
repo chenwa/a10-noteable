@@ -229,6 +229,8 @@ body {
   background:#fff;
 
 }
+
+/* Necessary to center button, this should probably be a class instead */
 #wrapper #myBtnCenter {
   margin-right: 30%;
   margin-top: 5%;
@@ -241,6 +243,21 @@ body {
   background:#fff;
 
 }
+
+/* Specifically for generate code button, needs unique ID */
+#wrapper #codeGenerator {
+  margin-right: 30%;
+  margin-top: 5%;
+  text-align: center;
+  border: 1px solid #fff;
+  border-radius: 20px;
+  font-family: 'Comfortaa', 'Helvetica';
+  font-size: 10px;
+  font-color: #28598c;
+  background:#fff;
+
+}
+
 /** create account */
 
 /* The Modal (background) */
