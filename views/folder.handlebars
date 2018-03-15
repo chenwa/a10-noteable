@@ -1,0 +1,187 @@
+<!doctype html>
+
+<html>
+<head>
+	<title>NoteAble</title>	
+
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--CSS Files -->
+	<link href="/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/css/bootstrap-theme.min.css" rel="stylesheet">
+  <link href="/css/index.css" rel="stylesheet">
+
+</head>
+
+<body>
+ <!-- Navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/index"><img alt="Brand" src="/pics/LOGO-2-7_blue.png" width = "35px" height = "45px"></a>
+          <p class = "navbar-text">{{folderName}} <span id="syncIcon" class="glyphicon glyphicon-refresh green" style="color:#d3d3d3;"></p>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/index">Home</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/help">Help</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+  <div class="container" >
+    <div class="folder-title">
+      <h4><br></h4>
+      <!--Folder Settings Button-->
+      <div class ="container settings">
+        <button type="button" id="settingsPopover" class="btn btn-default btn-sm" data-placement="bottom" data-toggle="popover" data-trigger="click" data-html="true" 
+        title="
+        Edit Folder <a onmouseup='confirmDelete()'><span class='deleteIcon glyphicon glyphicon-trash'></span></a>
+        " 
+        data-content="
+          <form id='editFolder' role='form' method='get' action='/editFolder/{{folderID}}'> 
+            Folder name:
+              <input type='text' class='form-control' id='newFolderName' placeholder='{{folderName}}' name='newFolderName'>
+
+            <hr/>
+            <button type='button' class='btn btn-secondary btn-sm' onclick='closeSettings()'>Cancel</button>
+            <button type='button submit' id='saveFolderChanges' class='btn btn-primary btn-sm'>Save</button>
+          </form>
+          "><span class="glyphicon glyphicon-cog"></span> Edit Folder
+        </button>
+      </div> 
+
+      <!-- Sync Button -->
+      <div class="sync">
+        <button type="button" class="btn btn-success btn-sm" data-placement="bottom" data-toggle="popover" data-trigger="click" data-html="true" title="Sync Code"  data-content="
+          Sync Code:
+          <form id='changeSync' role='form' method='get' action='/changeSync/{{folderID}}'> 
+            <input type='text' class='form-control' id='syncCode' placeholder='{{syncCode}}' name='syncCode'>
+          </form>
+          Adding a Sync Code will sync your notes with other people using the same code.  
+          ">Sync
+        </button>
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="col-xs-8 form-group">
+        <input type="text" class="form-control" id="filter" value="Search">
+      </div> 
+      <div class="col-xs-4 form-group">
+        <select class="form-control" id="sel1">
+          <option>filter</option>
+          <option>A-Z</option>
+          <option>Date Added</option>
+          <option>etc.</option>
+        </select>
+      </div> 
+    </div>
+
+      <!-- start implementing handlebars for notes class="btn btn-info btn-block"-->
+    {{#each notes}}
+      <div class="row" > 
+        <div class="col-xs-6" id = "new_note">
+          <a href = "/note/{{../folderID}}"> <button type="button" >{{name}}</button></a>
+        </div>
+        <div class="col-xs-6" id = "date">{{date}}
+          <span id="{{noteID}}" class="deleteNoteButton deleteIcon glyphicon glyphicon-trash"></span>
+        </div>
+        <hr>
+      </div>
+    {{/each}}
+    <hr>
+    {{#each syncedNotes}} <!-- class="btn btn-success btn-block" -->
+      <div class="row"> 
+        <div class="col-xs-6" id = "sync_note">
+          <a href = "/note/{{../folderID}}"> <button type="button" >{{name}}</button></a>
+        </div>
+        <div class="col-xs-6" id = "date">{{date}}</div>
+        <hr>
+      </div>
+    {{/each}}
+  </div>
+
+
+  <!--back button-->
+  <div class = "back">
+    <a href = "/index"><img src = "/pics/arrow_wh.png" width="40" height = "42">
+  </div>
+  <!-- add button -->
+  <div class = "add">
+    <a href="#addNote" class="modal-toggle" data-toggle="modal" data-target="#addNote"><img src = "/pics/plus_ye.png" width="55" height = "55"></a>
+  </div>
+  <!-- end of add button -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="addNote" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <table>
+            <tr>
+              <td> <h5 class="modal-title" id="modalLabel">New Note</h5></td>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+          </button>
+        </tr>
+        </table>
+        </div>
+        <div class="modal-body">
+          <form id="addNoteForm" role="form" method"get" action="/addNote/{{folderID}}"> 
+            <div class="form-group">
+              <input type="text" class="form-control" id="name" placeholder="Name" name="name">
+            </div>
+            <div class="modal-footer">
+              <table>
+                <tr>
+                  <td><button type="button submit" id="submitBtn" class="btn btn-primary">Create Note</button></td>
+                  <td><button type="button"  id= "close" class="btn btn-secondary" data-dismiss="modal">Close</button></td>
+                </tr>
+              </table>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Scripts-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/main.js"></script>
+  <script>
+    window.onload = function(){
+      if(("{{syncCode}}" == ("none" || "" || null)) || ("{{syncCode}}".length ===0)){
+        $("#syncIcon").hide();
+      }
+    }
+    function confirmDelete() {
+        var ask = window.confirm("Permenantly delete folder? All notes will be lost.");
+        if (ask) {
+          window.location.href = "/deleteFolder/{{folderID}}";
+        }
+    }
+    $(".deleteNoteButton").mouseup(function(){
+        var ask = window.confirm("Permenantly delete note?");
+        if (ask) {
+          var noteID = $(this).attr("id");
+          window.location.href = "/deleteNote/" + noteID + "/{{folderID}}";
+        }
+    });
+  </script>
+  </script>
+</body>
+</html>

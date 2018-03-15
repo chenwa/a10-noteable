@@ -1,0 +1,163 @@
+<!doctype html>
+
+<html>
+<head>
+	<title>NoteAble</title>	
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--CSS Files -->
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/css/bootstrap-theme.min.css" rel="stylesheet">
+  <link href="/css/main.css" rel="stylesheet">
+  <script src ="/js/login.js"></script>
+</head>
+
+<body>
+
+ <!-- Navbar/ might not needed for the login page -->
+<!-- 
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+         <ul class = "navbar-nav" id = "login_center">
+           <li class = "center"></li>
+         </ul>
+        </div>
+      </div>
+    </nav> --> 
+
+
+  <!-- Content Goes here -->
+  <div class="container">
+    <table id="wrapper">
+    <tr>
+      <td id = "logo_main">
+        <br></br>
+        <img src = "/pics/LOGO-2-7_filled.png" width="30%" height = "auto"> <!-- temporary logo icon --> 
+      </td>
+    </tr>
+      <tr>
+      <td id="logo_name">
+        <h5>NoteAble</h5>
+        <p>make your notes notable.</p>
+  
+      </td>
+      </tr>
+    </table>
+    <!-- 
+    <p class="text-center">
+      A collaborative podcast application for school, work, and personal use.
+      <br/>
+      WeCast lets you record and annotate audio, as well as access audio shared
+      by your peers so you can catch up on missed lectures or meetings.
+      
+    </p> -->
+    <div class = "login_info">
+      <div class = "row">
+        <div class = "col-xs-2"></div>
+        <div class = "col-xs-8 form-group" id = "login_id">
+
+          <img src = "/pics/email.png" width = "10%" height = "auto">
+          <input type = "email" class = "form-control" id = "ex_input_email" name = "userid" placeholder="Enter e-mail">
+        </div>
+        <div class = "col-xs-2"></div>       
+      </div>
+
+      <div class = "row">
+        <div class = "col-xs-2"></div>
+        <div class = "col-xs-8" id = "login_pw">
+
+          <img src = "/pics/lock.png" width = "10%" height = "auto">
+          <input type = "password" class = "form-control" id = "ex_input_pw" name = "password" placeholder= "Enter password">
+        </div>
+        <div class = "col-xs-2"></div>
+      </div>
+
+      <table id = "wrapper">
+        <div class = "button_s">
+
+        <tr>
+          <td><a href = "/index"><button class = "btn btn-info" id ="enter" >Login</button></a></td>
+           <td>
+            <button id="myBtn" class="btn btn-secondary">Sign Up</button>
+              <!-- The Modal -->
+              <div id="myModal" class="modal">
+
+                <!-- Within the Modal (pop-up window) -->
+                <div class="modal-content">
+                  <span class="close">&times;</span>
+                  <br>
+                  <br>
+                  <p>Please fill out this form to create an account</p>
+                  <!-- E-mail -->
+                  <table id ="wrapper">
+                    <tr>
+                      <td>    
+                    <img src = "/pics/email.png" width = "10%" height = "auto"> <br>
+                    <input type = "email" class = "form-control"  name = "userid" placeholder="Enter e-mail"> <br>
+                       </td>
+                    </tr>
+                  </table>
+                  <!-- Password -->
+                  <table id = "wrapper">
+                    <tr>
+                      <td>
+                        <img src = "/pics/lock.png" width = "10%" height = "auto"> <br>
+                        <input type = "password" class = "form-control" name = "password1" placeholder= "Enter new password"> <br>
+                      </td>
+                    </tr>
+                  </table>
+                  <!-- Reset Password -->
+                  <table id = "wrapper">
+                    <tr>
+                      <td>
+                        <img src = "/pics/check.png" width = "10%" height = "auto"> <br>
+                        <input type = "password" class = "form-control" name = "password1" placeholder= "Repeat new password">
+                      </td>
+                    </tr>
+                  </table>
+
+                  <!-- Enter button -->
+                  <table id = "wrapper">
+                    <tr>
+                      <td><a href = "/index"><button class = "confirm_btn"> Confirm </button></a></td>
+                    </tr>
+                  </table>
+
+
+                </div>
+                <!-- end of Modal content (popup window) --> 
+              </div>
+          </td>
+        </tr>
+      </div>
+      </table>
+
+     <!-- Login with Facebook -->
+      <table id = "wrapper">
+        <tr>
+          <td><p class ="facebooklogin"><fb:login-button scope="public_profile,email" onlogin="checkLoginState();"> </fb:login-button></p></td>
+        <tr>
+     </table>
+
+           <!-- create new account --> 
+      <table id = "wrapper"> 
+        <tr>
+         
+        </tr>
+     </table>
+
+  </div>
+</div>
+  <!--Scripts-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/main.js"></script>
+  <!-- added FB partials -->
+  {{> facebook}}
+  <script src="/js/facebook.js"></script>
+
+</body>
+</html>

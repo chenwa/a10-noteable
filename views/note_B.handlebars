@@ -1,0 +1,371 @@
+<!doctype html>
+
+<html>
+<head>
+
+	<!--Google Analytics -->
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-114655521-2', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+	<title>NoteAble</title>
+
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--CSS Files -->
+	<link href="/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/css/bootstrap-theme.min.css" rel="stylesheet">
+  <link href="/css/note.css" rel="stylesheet">
+
+</head>
+
+<body>
+ <!-- Navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/index"><img alt="Brand" src="/pics/pics/LOGO-2-7_blue.png" width = "35px" height = "45px"></a>
+          <p class = "navbar-text" id= "note_b_notes">Notes</p>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/index">Home</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/help">Help</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+  <div class="container">
+    <div class="page-title">
+
+    </div>
+
+    <!-- Everything Here -->
+    <div class = "all_btn">
+      
+      <div class="row"> <!-- recording bar -->
+        <div id="bkmkIcon">
+          <a href = "#bookmarkIcon" class="modal-toggle" data-toggle="modal" data-target="#bookmarkIcon">
+              <img src = "/pics/star2_bkmk.png" width = "40" height = "40">
+          </a>
+        </div>
+
+        <div id="imgIcon">
+          <a href = "#imageIcon" class="modal-toggle" data-toggle="modal" data-target="#imageIcon">
+            <img src = "/pics/pic_bkmk.png" width = "40" height = "40">
+          </a>
+        </div>
+        <div class = "horizontal">
+          <div class= "scroll_bar" id = "wrapper" cellspacing="10">
+            <article>
+             <img src = "/pics/bars_layers_ye.png" width = "777px" height = "135" id="recordBar">
+
+            </article>
+          </div>
+        </div>
+
+        <table id = "wrapper" >
+        <tr>
+          <td id ="time"><h2>5:20</h2></td> <!--recording time-->
+        </tr>
+        <tr id="reminder">
+          <td><img src= "/pics/starr.png" height = "20px" width ="20px"></td>
+          <td><p><strong>Reminder: </strong>   Final on Friday, March 16th</p></td>
+        </tr>
+        </table>
+      </div> 
+
+
+       <table id = "wrapper_btn"> <!-- 3/1/2018 edit -->
+        <tr> <!-- for bookmark and camera -->
+          <td id = "round_bookmark">
+            <a href = "#bookmark" class="modal-toggle" id ="round_bookmark" data-toggle="modal" data-target="#bookmark">
+           <button type="button"><img src = "/pics/bk_start.png" height= "70px" width="70px"></button></a>
+            </td>
+          <td colspan="2" id="round_camera">
+            <a href="#camera" class="modal-toggle" id="round_camera" data-toggle="modal" data-target="#camera">
+              <button type="button"><img src = "/pics/cam_btn.png" height= "70px" width="70px"></button>
+            </a>
+          </td>
+        </tr>
+      </table>
+
+      <table id= "wrapper_btn">
+        <tr>
+          <td></td>
+          <td colspan = "2"></td>
+          <td colspan = "3"></td>
+          <td colspan = "4">
+            <button type="button" id="muteButton"><img src = "/pics/unmute.png" height= "70px" width="70px"></button>
+            <button type="button" id="unmuteButton" ><img src = "/pics/mute.png" height= "70px" width="70px"></button></a>
+          </td>
+          <td colspan="5" id ="recording_btn">
+            <button type="button" id="recordButton" ><img src = "/pics/rec_start.png" height= "70px" width="70px"></button></button>
+            <button type="button" id="recordButton2"><img src = "/pics/rec_stop.png" height= "70px" width="70px"></button>
+            </td>
+          <td colspan="6">
+            <a href = "#doneBtn" class="modal-toggle" data-toggle="modal" data-target="#doneBtn">
+              <button type="button" id="doneButton"><img src = "/pics/done_btn1.png" height= "70px" width="70px"></button>
+            </a>
+          </td>
+          <td colspan="7"></td>
+         <td colspan="8"></td>
+         <td colspan="9"></td>
+         <td colspan="10"></td>
+        </tr>
+      </table>
+
+       <!-- After the Done Button was pressed -->
+       <div class ="tab">
+        <table id="wrapper_tab" style ="width:100%">
+          <tr id = "noteb_tab">
+           <th><button id = "border_middle" class="tablinks book_mark" onclick="openTab(event, 'bookmarkTab')" id="defaultOpen">Bookmark</button></th>
+           <th colspan ="2"><button class="tablinks pics" onclick="openTab(event, 'picture')">Picture</button></th>
+         </tr>
+       </table>
+       </div> <!-- end of tab -->
+
+       <!-- Tab content -->
+       <div class="scrollmenu" >
+       <div id = "bookmarkTab" class ="tabcontent">
+         <p>Lorem ipsum dolor sit amet</p>
+         <br>
+         <p>Duis aute irure dolor in reprehenderit</p>
+                  <br>
+         <p>Duis aute irure dolor in reprehenderit</p>
+                  <br>
+         <p>Duis aute irure dolor in reprehenderit</p>
+                  <br>
+         <p>Duis aute irure dolor in reprehenderit</p>
+                  <br>
+         <p>Duis aute irure dolor in reprehenderit</p>
+                  <br>
+         <p>Duis aute irure dolor in reprehenderit</p>
+       </div>
+
+       <div id = "picture" class="tabcontent">
+        <table id = "wrapper">
+          <tr>
+            <td> <img src="/pics/lec_1.jpg"></td>
+          </tr>
+          <tr>
+             <td> <img src="/pics/lec_2.jpg"></td>
+          </tr>
+          <tr>
+             <td> <img src="/pics/lec_3.jpg"></td>
+          </tr>
+       </table>
+       </div>
+      </div>
+     </div> <!-- end of popup-->
+   </div> <!-- end of current button -->
+
+
+  </div>
+  <!-- back button -->
+  <div class = "back">
+    <a href = "/folder/{{folderID}}"><img src = "/pics/arrow_wh.png" width="55" height = "55"></a>
+  </div>
+  <!-- end of back button -->
+
+  <!-- help button -->
+  <div id="helpBtn">
+    <a href = "#helpButton" class="modal-toggle" data-toggle="modal" data-target="#helpButton">
+      <img src = "/pics/help_ye.png" width="40" height = "40">
+    </a>
+  </div>
+  <!-- end of help button -->
+
+  <!-- Modal for camera -->
+  <div class="modal fade" id="camera" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalLabel" id = "add_time"><strong> Camera</strong>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </h5>
+        </div>
+        <div class="modal-body">
+          <video id="video" width="100%" height="100%" autoplay></video>
+          <button id="snap" class="btn">Snap Photo</button>
+          <canvas id="canvas" style="display:none"></canvas>
+          <button id="retake" class="btn" style="display:none">Retake Photo</button>
+          <input type="file" accept="image/*" capture="camera" />
+
+          <div class="modal-footer">
+            <button id="savePhoto" type="button" data-dismiss="modal" class="btn btn-primary">Save</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close">Close</button>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for bookmark -->
+  <div class="modal fade" id="bookmark" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalLabel"><strong>Bookmark</strong>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </h5>
+        </div>
+        <div class="modal-body" id = "bookmark_">
+          <h6 id = "add_time">Added at 5:20</h6>
+          <input type="text" class="form-control" id="filter" value="Add a note">
+          <div class="modal-footer">
+            <table>
+              <tr>
+              <td><button id="savePhoto" type="button" data-dismiss="modal" class="btn btn-primary">Save</button></td>
+              <td><button id = "close" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button></td>
+            </tr>
+          </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for done button -->
+  <div class="modal fade" id="doneBtn" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalLabel"><strong>Finish Recording?</strong>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </h5>
+        </div>
+        <div class="modal-body">
+          <p id = "description">You're about to save your note recording. You will be unable to change your audio afterward. Are you sure you want to finalize it?</p>
+          <div class="modal-footer">
+            <table id = "check_footer">
+              <tr>
+            
+            <td><button  id = "finalize" type="button" class="btn btn-secondary" data-dismiss="modal" onclick="doneFunction()">Finalize</button></td>
+            <td><button id="close" type="button" data-dismiss="modal" class="btn btn-primary">Cancel</button></td>
+          </tr>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for bookmark icon -->
+  <div class="modal fade" id="bookmarkIcon" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalLabel">5:20
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </h5>
+          <p>Review chapters 5-7 for midterm.</p>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for image annotation icon -->
+  <div class="modal fade" id="imageIcon" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalLabel">6:30
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </h5>
+          <p>Lab 2 Demo</p>
+          <img src = "/pics/lec_2.jpg" width = "200" height = "200">
+          <br></br>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for help button -->
+  <div class="modal fade" id="helpButton" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalLabel">Help
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </h5>
+          <img src = "/pics/bookmark_icon.png" width = "50" height = "50">
+          Bookmark annotation
+          
+          <img src = "/pics/image_annotation_icon.png" width = "50" height = "50">
+          Picture annotation
+          
+          <img src = "/pics/recording_bar.png" width = "80%" height = "auto">
+          <p>Audio recording bar</p>
+
+          <img src = "/pics/time.png" width = "30%" height = "auto">
+          Current recording time
+          <br></br>
+
+          <i class="glyphicon glyphicon-bookmark"></i>
+          Adds bookmark to current time
+          <br></br>
+          
+          <i class="glyphicon glyphicon-camera"></i>
+          Adds picture to current time
+          <br></br>
+
+          <i class="glyphicon glyphicon-volume-up"></i>
+          Mutes or unmutes audio
+          <br></br>
+
+          <i class="glyphicon glyphicon-record" style="text-align: center;"></i>
+          Begins or stops recording
+          <br></br>
+
+          <img src = "/pics/done.png" width = "35%" height = "auto">
+          Saves recording
+          <br></br>
+          
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Scripts-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/note_b.js"></script>
+
+</body>
+</html>
