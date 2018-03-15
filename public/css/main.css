@@ -127,10 +127,10 @@ body {
   margin-top: 5%;
   border: 2px solid #fff;
   border-radius: 20px;
-  background: transparent;
+  background: white;
   outline: none;
   height: 35px;
-  color: #fff;
+  color: grey;
   font-family: 'Comfortaa', 'Helvetica';
   font-weight: lighter;
   font-size: 12px;
