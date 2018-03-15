@@ -24,11 +24,7 @@ ga('send', 'pageview');
   <!--CSS Files -->
 	<link href="/css/bootstrap.min.css" rel="stylesheet">
 	<link href="/css/bootstrap-theme.min.css" rel="stylesheet">
-  <link href="/css/main.css" rel="stylesheet"><script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" rel="stylesheet" />
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <link href="/css/note.css" rel="stylesheet">
 
 </head>
 
@@ -43,7 +39,8 @@ ga('send', 'pageview');
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/index">NoteAble</a>
+          <a class="navbar-brand" href="/index"><img alt="Brand" src="/pics/pics/LOGO-2-7_blue.png" width = "35px" height = "45px"></a>
+          <p class = "navbar-text" id= "note_b_notes">Notes</p>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -60,50 +57,75 @@ ga('send', 'pageview');
 
   <div class="container">
     <div class="page-title">
-      <h4>Notes</h4>
+
     </div>
 
     <!-- Everything Here -->
     <div class = "all_btn">
+      
       <div class="row"> <!-- recording bar -->
         <div id="bkmkIcon">
           <a href = "#bookmarkIcon" class="modal-toggle" data-toggle="modal" data-target="#bookmarkIcon">
-              <img src = "/pics/bookmark_icon.png" width = "40" height = "40">
+              <img src = "/pics/star2_bkmk.png" width = "40" height = "40">
           </a>
         </div>
 
         <div id="imgIcon">
           <a href = "#imageIcon" class="modal-toggle" data-toggle="modal" data-target="#imageIcon">
-            <img src = "/pics/image_annotation_icon.png" width = "40" height = "40">
+            <img src = "/pics/pic_bkmk.png" width = "40" height = "40">
           </a>
         </div>
+        <div class = "horizontal">
+          <div class= "scroll_bar" id = "wrapper" cellspacing="10">
+            <article>
+             <img src = "/pics/bars_layers_ye.png" width = "777px" height = "135" id="recordBar">
 
-        <table id = "wrapper" cellspacing="10">
-          <tr>
-            <td><img src = "/pics/recording_bar.png" width = "270" height = "180" id="recordBar"></td>
-          </tr>
+            </article>
+          </div>
+        </div>
+
+        <table id = "wrapper" >
         <tr>
           <td id ="time"><h2>5:20</h2></td> <!--recording time-->
         </tr>
-        <tr>
-          <td> <img src = "/pics/reminder.png" width = "275" height = "34"></td>
+        <tr id="reminder">
+          <td><img src= "/pics/starr.png" height = "20px" width ="20px"></td>
+          <td><p><strong>Reminder: </strong>   Final on Friday, March 16th</p></td>
         </tr>
         </table>
-      </div>
+      </div> 
 
-       <table id = "wrapper_btn"> <!-- 3/1/2018 edit --> 
-        <tr> 
+
+       <table id = "wrapper_btn"> <!-- 3/1/2018 edit -->
+        <tr> <!-- for bookmark and camera -->
+          <td id = "round_bookmark">
+            <a href = "#bookmark" class="modal-toggle" id ="round_bookmark" data-toggle="modal" data-target="#bookmark">
+           <button type="button"><img src = "/pics/bk_start.png" height= "70px" width="70px"></button></a>
+            </td>
+          <td colspan="2" id="round_camera">
+            <a href="#camera" class="modal-toggle" id="round_camera" data-toggle="modal" data-target="#camera">
+              <button type="button"><img src = "/pics/cam_btn.png" height= "70px" width="70px"></button>
+            </a>
+          </td>
+        </tr>
+      </table>
+
+      <table id= "wrapper_btn">
+        <tr>
           <td></td>
           <td colspan = "2"></td>
           <td colspan = "3"></td>
-          <td colspan = "4"></td>
-          <td colspan="5">
-            <a href = "#bookmark" class="modal-toggle" data-toggle="modal" data-target="#bookmark">
-            <button type="button" class="btn btn-warning btn-circle btn-xl"><i class="glyphicon glyphicon-bookmark"></i></button></a>
+          <td colspan = "4">
+            <button type="button" id="muteButton"><img src = "/pics/unmute.png" height= "70px" width="70px"></button>
+            <button type="button" id="unmuteButton" ><img src = "/pics/mute.png" height= "70px" width="70px"></button></a>
+          </td>
+          <td colspan="5" id ="recording_btn">
+            <button type="button" id="recordButton" ><img src = "/pics/rec_start.png" height= "70px" width="70px"></button></button>
+            <button type="button" id="recordButton2"><img src = "/pics/rec_stop.png" height= "70px" width="70px"></button>
             </td>
           <td colspan="6">
-            <a href="#camera" class="modal-toggle" data-toggle="modal" data-target="#camera">
-              <button type="button" class="btn btn-success btn-circle btn-xl"><i class="glyphicon glyphicon-camera"></i></button>
+            <a href = "#doneBtn" class="modal-toggle" data-toggle="modal" data-target="#doneBtn">
+              <button type="button" id="doneButton"><img src = "/pics/done_btn1.png" height= "70px" width="70px"></button>
             </a>
           </td>
           <td colspan="7"></td>
@@ -113,41 +135,63 @@ ga('send', 'pageview');
         </tr>
       </table>
 
-      <table id= "wrapper_btn"> 
-        <tr>
-          <td></td>
-          <td colspan = "2"></td>
-          <td colspan = "3"></td>
-          <td colspan = "4">
-            <button type="button" id="muteButton" class="btn btn-info btn-circle btn-xl"><i class="glyphicon glyphicon-volume-up"></i></button>
-            <button type="button" id="unmuteButton" class="btn btn-info btn-circle btn-xl"><i class="glyphicon glyphicon-volume-off"></i></button>
-          </td>
-          <td colspan="5">
-            <button type="button" id="recordButton" class="btn btn-danger btn-circle btn-xl btn-record"><i class="glyphicon glyphicon-record" style="text-align: center;"></i></button>
-            <button type="button" id="recordButton2" class="btn btn-danger btn-circle btn-xl"><i class="glyphicon glyphicon-stop"></i></button>
-            </td>
-          <td colspan="6">
-            <a href = "#doneBtn" class="modal-toggle" data-toggle="modal" data-target="#doneBtn"><button type="button" id="settingsPopover" class="btn btn-default btn-lg">Done</button></a>
-          <td colspan="7"></td>
-         <td colspan="8"></td>
-         <td colspan="9"></td>
-         <td colspan="10"></td>
-        </tr>
-      </table>
+       <!-- After the Done Button was pressed -->
+       <div class ="tab">
+        <table id="wrapper_tab" style ="width:100%">
+          <tr id = "noteb_tab">
+           <th><button id = "border_middle" class="tablinks book_mark" onclick="openTab(event, 'bookmarkTab')" id="defaultOpen">Bookmark</button></th>
+           <th colspan ="2"><button class="tablinks pics" onclick="openTab(event, 'picture')">Picture</button></th>
+         </tr>
+       </table>
+       </div> <!-- end of tab -->
 
+       <!-- Tab content -->
+       <div class="scrollmenu" >
+       <div id = "bookmarkTab" class ="tabcontent">
+         <p>Lorem ipsum dolor sit amet</p>
+         <br>
+         <p>Duis aute irure dolor in reprehenderit</p>
+                  <br>
+         <p>Duis aute irure dolor in reprehenderit</p>
+                  <br>
+         <p>Duis aute irure dolor in reprehenderit</p>
+                  <br>
+         <p>Duis aute irure dolor in reprehenderit</p>
+                  <br>
+         <p>Duis aute irure dolor in reprehenderit</p>
+                  <br>
+         <p>Duis aute irure dolor in reprehenderit</p>
+       </div>
+
+       <div id = "picture" class="tabcontent">
+        <table id = "wrapper">
+          <tr>
+            <td> <img src="/pics/lec_1.jpg"></td>
+          </tr>
+          <tr>
+             <td> <img src="/pics/lec_2.jpg"></td>
+          </tr>
+          <tr>
+             <td> <img src="/pics/lec_3.jpg"></td>
+          </tr>
+       </table>
+       </div>
+      </div>
+     </div> <!-- end of popup-->
    </div> <!-- end of current button -->
+
 
   </div>
   <!-- back button -->
   <div class = "back">
-    <a href = "/folder/{{folderID}}"><img src = "/pics/arrow.png" width="55" height = "55"></a>
+    <a href = "/folder/{{folderID}}"><img src = "/pics/arrow_wh.png" width="55" height = "55"></a>
   </div>
   <!-- end of back button -->
 
   <!-- help button -->
   <div id="helpBtn">
     <a href = "#helpButton" class="modal-toggle" data-toggle="modal" data-target="#helpButton">
-      <img src = "/pics/help.png" width="70" height = "70">
+      <img src = "/pics/help_ye.png" width="40" height = "40">
     </a>
   </div>
   <!-- end of help button -->
@@ -157,11 +201,11 @@ ga('send', 'pageview');
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="modalLabel">Camera
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button></h5>
-          
+          <h5 class="modal-title" id="modalLabel" id = "add_time"><strong> Camera</strong>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </h5>
         </div>
         <div class="modal-body">
           <video id="video" width="100%" height="100%" autoplay></video>
@@ -171,8 +215,9 @@ ga('send', 'pageview');
           <input type="file" accept="image/*" capture="camera" />
 
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button id="savePhoto" type="button" data-dismiss="modal" class="btn btn-primary">Save Photo</button>
+            <button id="savePhoto" type="button" data-dismiss="modal" class="btn btn-primary">Save</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close">Close</button>
+            
           </div>
         </div>
       </div>
@@ -184,17 +229,22 @@ ga('send', 'pageview');
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="modalLabel">Bookmark
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button></h5>
+          <h5 class="modal-title" id="modalLabel"><strong>Bookmark</strong>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </h5>
         </div>
-        <div class="modal-body">
-          <p>Added at 5:20</p>
+        <div class="modal-body" id = "bookmark_">
+          <h6 id = "add_time">Added at 5:20</h6>
           <input type="text" class="form-control" id="filter" value="Add a note">
           <div class="modal-footer">
-            <button id="savePhoto" type="button" data-dismiss="modal" class="btn btn-primary">Save Bookmark</button>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <table>
+              <tr>
+              <td><button id="savePhoto" type="button" data-dismiss="modal" class="btn btn-primary">Save</button></td>
+              <td><button id = "close" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button></td>
+            </tr>
+          </table>
           </div>
         </div>
       </div>
@@ -206,16 +256,21 @@ ga('send', 'pageview');
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="modalLabel">Finish Recording?
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button></h5>
+          <h5 class="modal-title" id="modalLabel"><strong>Finish Recording?</strong>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </h5>
         </div>
         <div class="modal-body">
-          <p>You're about to save your note recording. You will be unable to change your audio afterward. Are you sure you want to finalize it?</p>
+          <p id = "description">You're about to save your note recording. You will be unable to change your audio afterward. Are you sure you want to finalize it?</p>
           <div class="modal-footer">
-            <button id="savePhoto" type="button" data-dismiss="modal" class="btn btn-primary">Continue Recording</button>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Finalize</button>
+            <table id = "check_footer">
+              <tr>
+            
+            <td><button  id = "finalize" type="button" class="btn btn-secondary" data-dismiss="modal" onclick="doneFunction()">Finalize</button></td>
+            <td><button id="close" type="button" data-dismiss="modal" class="btn btn-primary">Cancel</button></td>
+          </tr>
           </div>
         </div>
       </div>
@@ -250,7 +305,7 @@ ga('send', 'pageview');
             </button>
           </h5>
           <p>Lab 2 Demo</p>
-          <img src = "/pics/lec_2.jpg" width = "100" height = "100">
+          <img src = "/pics/lec_2.jpg" width = "200" height = "200">
           <br></br>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
@@ -264,9 +319,10 @@ ga('send', 'pageview');
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="modalLabel">Help
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </h5>
           <img src = "/pics/bookmark_icon.png" width = "50" height = "50">
           Bookmark annotation
           
@@ -309,7 +365,7 @@ ga('send', 'pageview');
   <!--Scripts-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="/js/bootstrap.min.js"></script>
-	<script src="/js/note.js"></script>
+	<script src="/js/note_b.js"></script>
 
 </body>
 </html>
