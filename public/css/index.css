@@ -351,6 +351,7 @@ body {
   color: #28598c;
 }
 
+
 .modal-body {
   border: 1px solid #fff;
   margin-top: -10px;
@@ -574,7 +575,7 @@ body {
 }
 
 #close {
-    color: #fff;
+  color: #fff;
   font-weight: lighter;
   font-family: 'Comfortaa', 'Helvetica';
 }
@@ -584,11 +585,13 @@ body {
 }
 .modal-header .close {
   float: right;
+  border: 1px solid black;
 }
 
 .modal-dialog .modal-body .form-group input[type="text"] {
   color: black;
-  border: 1px solid #28598c;
+  border: none;
+  box-shadow: none;
 }
 
 #help_txt {
@@ -600,4 +603,32 @@ body {
   font-weight: lighter;
   font-family: 'Lato', 'Helvetica';
 }
+
+#changePW #wrapper input[name="password"]{
+    color:black;
+    border: 1px solid #28598c ;
+}
+
+#changePW #wrapper button {
+  margin-top: 5%;
+  font-family: 'Lato', 'Helvetica';
+  color: #f2cf58;
+  font-weight: normal;
+  background-color: #28598c;
+  border:none;
+  font-size: 14px;
+  box-shadow: none;
+  padding-left, padding-right, padding-top, padding-bottom: 5px;
+}
+#myBtnCenter, #codeGenerator {
+  font-family: 'Comfortaa', 'Helvetica';
+  border: 3px solid #f2cf58;
+  background-color: white;
+}
+
+#myBtnCenter label {
+  font-family: 'Lato', 'Helvetica';
+}
+
+
 /*End style*/
