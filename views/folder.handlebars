@@ -110,7 +110,9 @@
         <div class="col-xs-6" id = "sync_note">
           <a href = "/note/{{../folderID}}"> <button type="button" >{{name}}</button></a>
         </div>
-        <div class="col-xs-6" id = "date">{{date}}</div>
+        <div class="col-xs-6" id = "date">{{date}}
+           <span id="syncIcon" class="deleteIcon glyphicon glyphicon-refresh"></span>
+        </div>
         <hr>
       </div>
     {{/each}}
